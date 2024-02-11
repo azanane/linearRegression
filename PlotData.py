@@ -8,7 +8,8 @@ def getValuesFromCsv(filename):
     
     return ( dataFrame )
 
-def plotData(theta0, theta1, trainX):
+
+def plotData(theta0, theta1):
 
     dataFrame = getValuesFromCsv('datasets/data.csv')
 
@@ -19,3 +20,4 @@ def plotData(theta0, theta1, trainX):
     fig.canvas.manager.set_window_title('Estimated price') # Set the window title
 
     plt.show()
+
