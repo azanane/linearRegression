@@ -1,7 +1,7 @@
 def checkInt(inputStr):
 
     try: 
-        int(inputStr)
+        float(inputStr)
     except ValueError:
         return False
     else:
@@ -22,13 +22,15 @@ def main():
 			return 1
 		else:
 
-			with open("../thetaValues.csv", "r") as filin:
+			with open("datasets/thetaValues.csv", "r") as filin:
 				theta0 = filin.readline()
 				theta1 = filin.readline()
 
 			if (checkInt(theta0) == False or checkInt(theta1) == False) and theta0 != "" and theta1 != "":
-				print("Don't modify the theta.csv content, if you did, please reset it to empty")
+				
+				print("Don't modify the theta.csv content, if you did, please reset it to empty and launch the gradient descent programm.")
 				return 1
+
 			else:
 
 				if theta0 == "":
@@ -36,11 +38,12 @@ def main():
 				if theta1 == "":
 					theta1 = 0
 
-				theta0 = int(theta0)
-				theta1 = int(theta1)
-				mileage = int(mileage)
+				theta0 = float(theta0)
+				theta1 = float(theta1)
+				mileage = float(mileage)
 
-				print("The estimated price for the car is", linearFunction(theta0, theta1, mileage))
+				print(theta0, theta1, mileage)
+				print("The estimated price for the car is", int(linearFunction(theta0, theta1, mileage)), "euros")
 				return 0
 
 	except EOFError:
